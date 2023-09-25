@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Credit Card</title>
+</head>
+<body>
+<h1>Update Phone</h1>
+<form action="/updateCinema" method="post">
+    <input type="hidden" name="id" th:value="${cinema.id}"/>
+    <label>
+        <input type="text" name="Cinema_name" th:value="${cinema.cinema_name}" placeholder="Cinema Name">
+    </label>
+    <label>
+        <input type="text" name="film" th:value="${cinema.film}" placeholder="Film">
+    </label>
+    <label>
+        <input type="text" name="date" th:value="${cinema.date}" placeholder="Date">
+    </label>
+    <label>
+        <input type="text" name="cost" th:value="${cinema.cost}" placeholder="Cost">
+    </label>
+    <button type="submit">Update Cinema</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cinemas>
+    <cinema>
+        <cinemaName>Октябрь</cinemaName>
+        <film>Барби</film>
+        <date>01-12-2022</date>
+        <cost>12</cost>
+    </cinema>
+    <cinema>
+        <cinemaName>Ветразь</cinemaName>
+        <film>Стражи Галактики</film>
+        <date>15-04-2020</date>
+        <cost>5</cost>
+    </cinema>
+    <cinema>
+        <cinemaName>Скайлайн</cinemaName>
+        <film>Рождение Принцессы</film>
+        <date>05-07-2003</date>
+        <cost>22</cost>
+    </cinema>
+    <cinema>
+        <cinemaName>Центральный</cinemaName>
+        <film>Заложники</film>
+        <date>01-12-2015</date>
+        <cost>16</cost>
+    </cinema>
+    <cinema>
+        <!-- Невалидный пример -->
+        <cinemaName>Октябрь!"!!!!</cinemaName>
+        <film>Барби!!!!</film>
+        <date>01-12-202!!!!2</date>
+        <cost>1О0</cost>
+    </cinema>
+</cinemas>

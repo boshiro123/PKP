@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phones>
+    <phone>
+        <brand>Apple</brand>
+        <model>iPhone 13 pro max</model>
+        <yearOfIssue>2021</yearOfIssue>
+        <memory>256</memory>
+    </phone>
+    <phone>
+        <brand>Huawei</brand>
+        <model>nova Y91</model>
+        <yearOfIssue>2023</yearOfIssue>
+        <memory>64</memory>
+    </phone>
+    <phone>
+        <brand>Samsung</brand>
+        <model>Galaxy X6</model>
+        <yearOfIssue>2018</yearOfIssue>
+        <memory>128</memory>
+    </phone>
+    <phone>
+        <brand>Xiaomi</brand>
+        <model>Redmi 6</model>
+        <yearOfIssue>2016</yearOfIssue>
+        <memory>64</memory>
+    </phone>
+    <phone>
+        <!-- Невалидный пример -->
+        <brand>Apple4321</brand>
+        <model>iPhone XS</model>
+        <yearOfIssue>202ljsdhf</yearOfIssue>
+        <memory>123</memory>
+    </phone>
+</phones>

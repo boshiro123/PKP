@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="cinemas">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="cinema" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="cinemaName" type="xsd:string"/>
+                            <xsd:element name="film" type="xsd:string"/>
+                            <xsd:element name="date" type="xsd:string"/>
+                            <xsd:element name="cost" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

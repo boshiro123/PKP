@@ -1,0 +1,4 @@
+Phone{brand='Apple', model='iPhone 13 pro max', yearOfIssue=2021, memory=256}
+Phone{brand='Huawei', model='nova Y91', yearOfIssue=2023, memory=64}
+Phone{brand='Samsung', model='Galaxy X6', yearOfIssue=2018, memory=128}
+Phone{brand='Xiaomi', model='Redmi 6', yearOfIssue=2016, memory=64}

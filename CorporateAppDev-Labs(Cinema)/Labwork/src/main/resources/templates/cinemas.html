@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cinemas</title>
+</head>
+<body>
+<h1>All Cinemas</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Cinema Name</th>
+        <th>Film</th>
+        <th>Date</th>
+        <th>Cost</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cinema : ${cinemas}">
+        <td th:text="${cinema.cinema_name}"></td>
+        <td th:text="${cinema.film}"></td>
+        <td th:text="${cinema.date}"></td>
+        <td th:text="${cinema.cost}"></td>
+        <td>
+            <a th:href="@{/deleteCinema/{id}(id=${cinema.id})}">Delete</a> |
+            <a th:href="@{/updateCinema/{id}(id=${cinema.id})}">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add a new Phone</h2>
+<form action="/addCinema" method="post">
+    <label>
+        <input type="text" name="cinemaName" placeholder="Cinema Name">
+    </label>
+    <label>
+        <input type="text" name="film" placeholder="Film">
+    </label>
+    <label>
+        <input type="text" name="date" placeholder="Date">
+    </label>
+    <label>
+        <input type="text" name="cost" placeholder="Cost">
+    </label>
+    <button type="submit">Add Cinema</button>
+</form>
+</body>
+</html>
