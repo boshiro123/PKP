@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Credit Cards</title>
+</head>
+<body>
+<h1>All Phones</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Phone brand</th>
+        <th>Phone model</th>
+        <th>Year if issue</th>
+        <th>Memory</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="phone : ${phones}">
+        <td th:text="${phone.brand}"></td>
+        <td th:text="${phone.model}"></td>
+        <td th:text="${phone.yearOfIssue}"></td>
+        <td th:text="${phone.memory}"></td>
+        <td>
+            <a th:href="@{/deletePhone/{id}(id=${phone.id})}">Delete</a> |
+            <a th:href="@{/updatePhone/{id}(id=${phone.id})}">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add a new Phone</h2>
+<form action="/addPhone" method="post">
+    <label>
+        <input type="text" name="brand" placeholder="Brand">
+    </label>
+    <label>
+        <input type="text" name="model" placeholder="Model">
+    </label>
+    <label>
+        <input type="text" name="yearOfIssue" placeholder="Year of Issue">
+    </label>
+    <label>
+        <input type="text" name="memory" placeholder="Memory">
+    </label>
+    <button type="submit">Add Card</button>
+</form>
+</body>
+</html>
