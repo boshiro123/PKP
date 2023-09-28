@@ -11,6 +11,7 @@ import com.example.corporateappdev_phones.models.Phone;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,24 +31,31 @@ public class Main {
             List<Phone> saxPhones = saxParser.parsePhones(creditCardFilePath);
 
             writeToFile(domPhones);
-            validateAndPrint(saxPhones);
+            saxPhones = validateAndPrint(saxPhones,true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static void validateAndPrint(List<Phone> phones) {
+    private static List<Phone> validateAndPrint(List<Phone> phones, boolean isPrint) {
+        List<Phone> list = new ArrayList<>();
         for (Phone phone : phones) {
             try {
                 phone.validate();
-                System.out.println("Valid phone: " + phone);
+                if(isPrint) System.out.println("Valid phone: " + phone);
             } catch (Exception e) {
-                System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
+                list.add(phone);
+                if(isPrint)System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
             }
         }
+        for (Phone i : list) {
+         phones.remove(i);
+        }
+            return phones;
     }
 
     private static void writeToFile(List<Phone> phones) throws IOException {
+        phones = validateAndPrint(phones,false);
         List<String> outputLines = phones.stream().map(Phone::toString).collect(Collectors.toList());
         Files.write(Paths.get("output.txt"), outputLines);
     }

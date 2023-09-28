@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CreditCardControllerTest {
+public class ControllerTest {
 
     @InjectMocks
     private CinemaController controller;
@@ -36,8 +36,8 @@ public class CreditCardControllerTest {
     public void testGetCinemas() {
         List<Cinema> cinemas = Arrays.asList(new Cinema(), new Cinema());
         when(service.getAllCinemas()).thenReturn(cinemas);
-        String viewName = controller.getPhones(model);
-        assertEquals("phones", viewName);
+        String viewName = controller.getCinema(model);
+        assertEquals("cinemas", viewName);
         verify(model, times(1)).addAttribute("cinemas", cinemas);
         verify(service, times(1)).getAllCinemas();
     }
@@ -64,7 +64,7 @@ public class CreditCardControllerTest {
     @Test
     public void testUpdateCinema() {
         Cinema cinema = new Cinema();
-        String viewName = controller.updatePhone(cinema);
+        String viewName = controller.updateCinema(cinema);
         assertEquals("redirect:/cinemas", viewName);
         verify(service, times(1)).updateCinema(cinema);
     }
@@ -72,7 +72,7 @@ public class CreditCardControllerTest {
     @Test
     public void testDeleteCinema() {
         int id = 1;
-        String viewName = controller.deletePhone(id);
+        String viewName = controller.deleteCinema(id);
         assertEquals("redirect:/cinemas", viewName);
         verify(service, times(1)).deleteCinema(id);
     }

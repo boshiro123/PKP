@@ -17,7 +17,7 @@ public class CinemaController {
     }
 
     @GetMapping("/cinemas")
-    public String getPhones(Model model) {
+    public String getCinema(Model model) {
         model.addAttribute("cinemas", service.getAllCinemas());
         return "cinemas";
     }
@@ -36,13 +36,13 @@ public class CinemaController {
     }
 
     @PostMapping("/updateCinema")
-    public String updatePhone(Cinema cinema) {
+    public String updateCinema(Cinema cinema) {
         service.updateCinema(cinema);
         return "redirect:/cinemas";
     }
 
     @GetMapping("/deleteCinema/{id}")
-    public String deletePhone(@PathVariable int id) {
+    public String deleteCinema(@PathVariable int id) {
         service.deleteCinema(id);
         return "redirect:/cinemas";
     }

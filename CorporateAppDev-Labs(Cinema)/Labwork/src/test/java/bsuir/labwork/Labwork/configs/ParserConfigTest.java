@@ -16,6 +16,6 @@ public class ParserConfigTest {
     @Test
     public void testFieldInitialization() {
         ParserConfig instance = ParserConfig.getInstance();
-        assertEquals("phones.xml", instance.getFilePath(), "Field not initialized correctly");
+        assertEquals("Labwork/Cinemas.xml", instance.getFilePath(), "Field not initialized correctly");
     }
 }
