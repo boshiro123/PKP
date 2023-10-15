@@ -1,12 +1,12 @@
 package com.example.corporateappdev_phones;
 
-
 import com.example.corporateappdev_phones.configs.ParserConfig;
 import com.example.corporateappdev_phones.factories.DOMParserFactory;
 import com.example.corporateappdev_phones.factories.SAXParserFactory;
 import com.example.corporateappdev_phones.interfaces.Parser;
 import com.example.corporateappdev_phones.interfaces.ParserFactory;
 import com.example.corporateappdev_phones.models.Phone;
+import com.example.corporateappdev_phones.patterns.ValidationVisitor;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -38,24 +38,28 @@ public class Main {
     }
 
     private static List<Phone> validateAndPrint(List<Phone> phones, boolean isPrint) {
-        List<Phone> list = new ArrayList<>();
+//        List<Phone> list = new ArrayList<>();
+        ValidationVisitor visitor =  new ValidationVisitor();
         for (Phone phone : phones) {
-            try {
-                phone.validate();
-                if(isPrint) System.out.println("Valid phone: " + phone);
-            } catch (Exception e) {
-                list.add(phone);
-                if(isPrint)System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
-            }
+
+//            try {
+                phone.accept(visitor);
+//                phone.validate();
+//                if(isPrint) System.out.println( j+" Valid phone: " + phone);
+//            } catch (Exception e) {
+//                list.add(phone);
+//                if(isPrint)System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
+//            }
         }
-        for (Phone i : list) {
-         phones.remove(i);
-        }
+//        for (Phone i : list) {
+//         phones.remove(i);
+//        }
             return phones;
     }
 
     private static void writeToFile(List<Phone> phones) throws IOException {
-        phones = validateAndPrint(phones,false);
+//        phones = validateAndPrint(phones,false);
+        phones.remove(4);
         List<String> outputLines = phones.stream().map(Phone::toString).collect(Collectors.toList());
         Files.write(Paths.get("output.txt"), outputLines);
     }

@@ -30,7 +30,9 @@
 </table>
 
 <h2>Add a new Phone</h2>
+<div th:if="${error}" th:text="${error}"></div>
 <form action="/addPhone" method="post">
+    <hr>
     <label>
         <input type="text" name="brand" placeholder="Brand">
     </label>

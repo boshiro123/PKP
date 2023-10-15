@@ -2,7 +2,7 @@ package bsuir.labwork.Labwork.utils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class DOMParserTest {
 
     @Test
-    public void testParseCreditCards() throws Exception {
+    public void testParseCinemas() throws Exception {
         DOMParser parser = new DOMParser();
         String filePath = "Cinemas.xml";
         List<Cinema> cinemas = parser.parseCinemas(filePath);

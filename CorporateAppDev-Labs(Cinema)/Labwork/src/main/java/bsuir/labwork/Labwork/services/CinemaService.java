@@ -1,6 +1,6 @@
 package bsuir.labwork.Labwork.services;
 
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
 import bsuir.labwork.Labwork.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

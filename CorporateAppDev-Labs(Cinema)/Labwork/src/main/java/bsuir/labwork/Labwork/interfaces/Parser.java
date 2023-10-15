@@ -1,6 +1,6 @@
 package bsuir.labwork.Labwork.interfaces;
 
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
 
 import java.util.List;
 

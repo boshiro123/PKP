@@ -2,4 +2,3 @@ Cinema(id=0, cinema_name=Октябрь, film=Барби, date=01-12-2022, cost=
 Cinema(id=0, cinema_name=Ветразь, film=Стражи Галактики, date=15-04-2020, cost=5)
 Cinema(id=0, cinema_name=Скайлайн, film=Рождение Принцессы, date=05-07-2003, cost=22)
 Cinema(id=0, cinema_name=Центральный, film=Заложники, date=01-12-2015, cost=16)
-Cinema(id=0, cinema_name=Октябрь!"!!!!, film=Барби!!!!, date=01-12-202!!!!2, cost=1О0)

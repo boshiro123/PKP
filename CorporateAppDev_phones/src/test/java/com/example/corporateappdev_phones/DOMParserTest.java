@@ -14,7 +14,7 @@ public class DOMParserTest {
     @Test
     public void testParseCreditCards() throws Exception {
         DOMParser parser = new DOMParser();
-        String filePath = "test_credit_cards.xml";
+        String filePath = ".xml";
 
         List<Phone> phones = parser.parsePhones(filePath);
 

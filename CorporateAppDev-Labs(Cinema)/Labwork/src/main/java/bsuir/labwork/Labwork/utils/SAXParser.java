@@ -1,7 +1,7 @@
 package bsuir.labwork.Labwork.utils;
 
 import bsuir.labwork.Labwork.interfaces.Parser;
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.SAXParserFactory;

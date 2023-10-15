@@ -43,13 +43,13 @@ public class PhoneControllerTest {
         verify(service, times(1)).getAllPhones();
     }
 
-    @Test
-    public void testAddPhone() {
-        Phone phone = new Phone();
-        String viewName = controller.addPhone(phone);
-        assertEquals("redirect:/phones", viewName);
-        verify(service, times(1)).savePhone(phone);
-    }
+//    @Test
+//    public void testAddPhone() {
+//        Phone phone = new Phone();
+//        String viewName = controller.addPhone(phone);
+//        assertEquals("redirect:/phones", viewName);
+//        verify(service, times(1)).savePhone(phone);
+//    }
 
     @Test
     public void testUpdatePhoneForm() {

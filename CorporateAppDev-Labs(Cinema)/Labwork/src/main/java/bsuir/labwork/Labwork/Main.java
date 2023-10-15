@@ -5,7 +5,8 @@ import bsuir.labwork.Labwork.factories.DOMParserFactory;
 import bsuir.labwork.Labwork.interfaces.Parser;
 import bsuir.labwork.Labwork.interfaces.ParserFactory;
 import bsuir.labwork.Labwork.factories.SAXParserFactory;
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
+import bsuir.labwork.Labwork.patterns.ValidationVisitor;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -28,26 +29,36 @@ public class Main {
             List<Cinema> domCinema = domParser.parseCinemas(FilePath);
             List<Cinema> saxCinema = saxParser.parseCinemas(FilePath);
 
-            writeCardsToFile(domCinema);
-            validateAndPrintCards(saxCinema);
+            writeToFile(domCinema);
+            validateAndPrint(saxCinema, true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static void validateAndPrintCards(List<Cinema> cinemas) {
+    private static List<Cinema> validateAndPrint(List<Cinema> cinemas, boolean isPrint) {
+//        List<Phone> list = new ArrayList<>();
+        ValidationVisitor visitor = new ValidationVisitor();
         for (Cinema cinema : cinemas) {
-            try {
-                cinema.validate();
-                System.out.println("Valid cinema: " + cinema);
-            } catch (Exception e) {
-                System.out.println("Invalid cinema detected: " + cinema + " Reason: " + e.getMessage());
-            }
+//            try {
+            cinema.accept(visitor);
+//                phone.validate();
+//                if(isPrint) System.out.println( j+" Valid phone: " + phone);
+//            } catch (Exception e) {
+//                list.add(phone);
+//                if(isPrint)System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
+//            }
         }
+//        for (Phone i : list) {
+//         phones.remove(i);
+//        }
+        return cinemas;
     }
 
-    private static void writeCardsToFile(List<Cinema> cinemas) throws IOException {
-        List<String> outputLines = cinemas.stream().map(Cinema::toString).collect(Collectors.toList());
-        Files.write(Paths.get("Labwork/output.txt"), outputLines);
+    private static void writeToFile(List<Cinema> phones) throws IOException {
+//        phones = validateAndPrint(phones,false);
+        phones.remove(4);
+        List<String> outputLines = phones.stream().map(Cinema::toString).collect(Collectors.toList());
+        Files.write(Paths.get("output.txt"), outputLines);
     }
 }

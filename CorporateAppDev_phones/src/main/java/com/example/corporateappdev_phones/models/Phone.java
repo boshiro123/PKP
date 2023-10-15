@@ -1,6 +1,7 @@
 package com.example.corporateappdev_phones.models;
 
 import com.example.corporateappdev_phones.exceptions.PhoneException;
+import com.example.corporateappdev_phones.interfaces.Visitor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,4 +47,7 @@ public class Phone {
         this.yearOfIssue = yearOfIssue;
         this.memory = memory;
     }
+
+    public void accept(Visitor visitor) {visitor.visit(this);}
+
 }

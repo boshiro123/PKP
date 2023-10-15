@@ -3,6 +3,7 @@ package com.example.corporateappdev_phones.controllers;
 import com.example.corporateappdev_phones.models.Phone;
 import com.example.corporateappdev_phones.services.PhonesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +13,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PhoneController {
     private final PhonesService service;
+    private boolean isError;
 
     @Autowired
-    public PhoneController(PhonesService service) {
+    public PhoneController(PhonesService service ) {
         this.service = service;
     }
 
     @GetMapping("/phones")
     public String getPhones(Model model) {
+        if(isError) {
+            model.addAttribute("error", "Неправильный ввод");
+        }
+        if (isError)isError=false;
         model.addAttribute("phones", service.getAllPhones());
         return "phones";
     }
-
     @PostMapping("/addPhone")
-    public String addPhone(Phone phone) {
+    public String addPhone(Phone phone, Model model) {
+        try{
+            phone.validate();
+        }catch (Exception  e){
+            model.addAttribute("phones", service.getAllPhones());
+            System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
+            isError=true;
+            return "redirect:/phones";
+        }
         service.savePhone(phone);
         return "redirect:/phones";
     }

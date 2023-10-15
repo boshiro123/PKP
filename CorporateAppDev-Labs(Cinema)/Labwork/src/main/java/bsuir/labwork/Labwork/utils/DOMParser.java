@@ -1,7 +1,7 @@
 package bsuir.labwork.Labwork.utils;
 
 import bsuir.labwork.Labwork.interfaces.Parser;
-import bsuir.labwork.Labwork.models.Cinema;
+import bsuir.labwork.Labwork.entity.Cinema;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

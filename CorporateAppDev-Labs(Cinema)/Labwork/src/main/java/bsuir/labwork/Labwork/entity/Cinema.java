@@ -1,6 +1,7 @@
-package bsuir.labwork.Labwork.models;
+package bsuir.labwork.Labwork.entity;
 
 import bsuir.labwork.Labwork.exceptions.InvalidCinemaException;
+import bsuir.labwork.Labwork.interfaces.Visitor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,4 +54,7 @@ public class Cinema {
         }
 
     }
+    public void accept(Visitor visitor)
+    {visitor.visit(this);}
+
 }
