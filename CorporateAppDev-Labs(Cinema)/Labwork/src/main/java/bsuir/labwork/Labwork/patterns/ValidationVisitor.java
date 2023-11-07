@@ -9,9 +9,9 @@ public class ValidationVisitor implements Visitor {
     public void visit(Cinema cinema) {
         try {
             cinema.validate();
-            System.out.println("Valid phone: " + cinema);
+            System.out.println("Valid cinema: " + cinema);
         } catch (Exception e) {
-            System.out.println("Invalid phone detected: " + cinema + " Reason: " + e.getMessage());
+            System.out.println("Invalid cinema detected: " + cinema + " Reason: " + e.getMessage());
         }
     }
 }

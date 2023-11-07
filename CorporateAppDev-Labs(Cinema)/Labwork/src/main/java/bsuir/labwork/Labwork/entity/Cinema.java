@@ -54,7 +54,6 @@ public class Cinema {
         }
 
     }
-    public void accept(Visitor visitor)
-    {visitor.visit(this);}
+    public void accept(Visitor visitor) {visitor.visit(this);}
 
 }

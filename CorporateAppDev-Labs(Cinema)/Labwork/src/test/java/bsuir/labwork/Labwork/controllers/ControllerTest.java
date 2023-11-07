@@ -41,21 +41,19 @@ public class ControllerTest {
         verify(model, times(1)).addAttribute("cinemas", cinemas);
         verify(service, times(1)).getAllCinemas();
     }
-
-//    @Test
-//    public void testAddCinema() {
-//        Cinema cinema = new Cinema();
-//        String viewName = controller.addCinema(cinema);
-//        assertEquals("redirect:/cinemas", viewName);
-//        verify(service, times(1)).saveCinema(cinema);
-//    }
+    @Test
+    void addCinema_shouldSaveCinemaAndRedirect() {
+        Cinema cinema = new Cinema();
+        String result = controller.addCinema(cinema, model);
+        assertEquals("redirect:/cinemas", result);
+        verify(service, times(1)).saveCinema(cinema);
+    }
 
     @Test
     public void testUpdateCinemaForm() {
         Cinema cinema = new Cinema();
         int id = 1;
         when(service.getCinemaById(id)).thenReturn(cinema);
-
         String viewName = controller.updateCinemaForm(id, model);
         assertEquals("updateCinema", viewName);
         verify(model, times(1)).addAttribute("cinema", cinema);

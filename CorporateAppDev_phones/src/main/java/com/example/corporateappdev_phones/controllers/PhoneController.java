@@ -19,7 +19,6 @@ public class PhoneController {
     public PhoneController(PhonesService service ) {
         this.service = service;
     }
-
     @GetMapping("/phones")
     public String getPhones(Model model) {
         if(isError) {

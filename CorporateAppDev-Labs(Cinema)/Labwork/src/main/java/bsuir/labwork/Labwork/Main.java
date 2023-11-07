@@ -37,28 +37,16 @@ public class Main {
     }
 
     private static List<Cinema> validateAndPrint(List<Cinema> cinemas, boolean isPrint) {
-//        List<Phone> list = new ArrayList<>();
         ValidationVisitor visitor = new ValidationVisitor();
         for (Cinema cinema : cinemas) {
-//            try {
             cinema.accept(visitor);
-//                phone.validate();
-//                if(isPrint) System.out.println( j+" Valid phone: " + phone);
-//            } catch (Exception e) {
-//                list.add(phone);
-//                if(isPrint)System.out.println("Invalid phone detected: " + phone + " Reason: " + e.getMessage());
-//            }
         }
-//        for (Phone i : list) {
-//         phones.remove(i);
-//        }
         return cinemas;
     }
 
-    private static void writeToFile(List<Cinema> phones) throws IOException {
-//        phones = validateAndPrint(phones,false);
-        phones.remove(4);
-        List<String> outputLines = phones.stream().map(Cinema::toString).collect(Collectors.toList());
+    private static void writeToFile(List<Cinema> cinemas) throws IOException {
+        cinemas.remove(4);
+        List<String> outputLines = cinemas.stream().map(Cinema::toString).collect(Collectors.toList());
         Files.write(Paths.get("output.txt"), outputLines);
     }
 }
