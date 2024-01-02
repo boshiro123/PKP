@@ -31,6 +31,14 @@ public class CinemaController {
 
     @PostMapping("/addCinema")
     public String addCinema(Cinema cinema, Model model) {
+        try{
+            cinema.validate();
+        }catch (Exception  e){
+            model.addAttribute("phones", service.getAllCinemas());
+            System.out.println("Invalid cinema detected: " + cinema + " Reason: " + e.getMessage());
+            isError=true;
+            return "redirect:/cinemas";
+        }
         service.saveCinema(cinema);
         return "redirect:/cinemas";
     }
