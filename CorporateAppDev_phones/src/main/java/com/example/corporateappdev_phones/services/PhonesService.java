@@ -30,6 +30,9 @@ public class PhonesService {
     public void deletePhone(int id) {
         repository.deleteById(id);
     }
+    public List<Phone> fing(String name) {
+       return repository.findByBrandContainingIgnoreCase(name);
+    }
 
     public Phone getPhoneById(int id) {
         return repository.findById(id).orElse(null);

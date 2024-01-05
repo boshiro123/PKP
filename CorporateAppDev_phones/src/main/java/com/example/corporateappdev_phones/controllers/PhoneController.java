@@ -28,6 +28,11 @@ public class PhoneController {
         model.addAttribute("phones", service.getAllPhones());
         return "phones";
     }
+    @GetMapping("/phones/{String}")
+    public String getPhones1(@PathVariable("String") String String,Model model) {
+        model.addAttribute("phones", service.fing(String));
+        return "phones2";
+    }
     @PostMapping("/addPhone")
     public String addPhone(Phone phone, Model model) {
         try{
@@ -40,6 +45,11 @@ public class PhoneController {
         }
         service.savePhone(phone);
         return "redirect:/phones";
+    }
+
+    @GetMapping("/FindPhone")
+    public String find(String name, Model model) {
+        return "redirect:/phones/";
     }
 
     @GetMapping("/updatePhone/{id}")
